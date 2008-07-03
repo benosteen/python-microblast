@@ -1,0 +1,12 @@
+# Seek out http links in the message and autoconvert to tinyurls?
+# Comment out to stop
+tinyurl=true
+
+#twitter settings
+twitter_id=oxfordben
+twitter_pass=ZZZZZZZZZZ
+
+# Identi.ca XMPP settings - you must link your IM
+# username to the service *first*
+identica_im=bosteen@gmail.com
+identica_pass=ZZZZZZZZZZ
