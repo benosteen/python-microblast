@@ -43,7 +43,7 @@ if params.get("tinyurl", "n") != "n":
 if params.get("identica_im"):
     try:
         i = Identica_xmpp(params.get("identica_im"), params.get("identica_pass"))
-        i.postnew(message)
+        i.post(message)
     except Exception, inst:
         print "Identica - failed: %s" % inst
 
@@ -52,4 +52,4 @@ if params.get("twitter_id"):
         t = Twitter(params.get("twitter_id"), params.get("twitter_pass"))
         t.post(message)
     except Exception, inst:
-        print "Twitter - failed: %s" inst
+        print "Twitter - failed: %s" % inst

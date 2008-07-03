@@ -22,7 +22,7 @@ class Twitter(object):
             else:
                 raise MicroBlogMsgLimitExceeded
 
-        resp = c.request_post("", args={"status":message})
+        resp = self._conn.request_post("", args={"status":message})
 
         if resp.get('headers').get('status') not in ["200", 200, "204", 204]:
             raise FailWhale
