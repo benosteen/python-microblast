@@ -7,7 +7,7 @@ class FailWhale(Exception):
     def __str__(self):
         return "Oh noes, the failwhale cometh!"
 
-TWITTER_ENDPOINT = "http://twitter.com/"
+TWITTER_ENDPOINT = "http://twitter.com"
 
 class Twitter(object):
     def __init__(self, username,password):
@@ -24,9 +24,10 @@ class Twitter(object):
             else:
                 raise MicroBlogMsgLimitExceeded
 
-        resp = self._conn.request_post("statuses/update.json", args={"status":message})
+        resp = self._conn.request_post("/statuses/update.json", args={"status":message})
 
         if resp.get('headers').get('status') not in ["200", 200, "204", 204]:
+            print resp
             raise FailWhale
 
     def listfriends(self):
