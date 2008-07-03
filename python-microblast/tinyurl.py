@@ -15,6 +15,9 @@ class Tinyurl(object):
     def get(self, url):
         # Handcraft the ?url=XXX line as Tinyurl doesn't understand urlencoded
         # params - at least, when I try it anyway...
+        # Avoid recursion, as Tinyurl doesnt
+        if url.startswith("http://tinyurl.com"):
+            return url
         response = self._conn.request_get("?%s=%s" % (TINYURL_PARAM, url))
         http_status = response['headers'].get('status')
         if http_status == "200":
